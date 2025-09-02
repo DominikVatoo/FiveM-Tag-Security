@@ -2,8 +2,8 @@ local ESX = nil
 local bypass = {}
 
 local BYPASS_CONFIG = {
-    "license:cb334ee5a362f12798e0d2f5e2e41515812499e1", -- Dominik
-    "license:dfc2d8fea2b5bed03450d4bd9075ea74ed6510f2", -- Cxby
+    "", -- Dominik
+    "", -- Cxby
 }
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
@@ -75,26 +75,3 @@ function HasBypass(license)
     return bypass[license] == true
 end
 
-
--- MySQL.ready(function()
---     MySQL.Async.fetchAll("SELECT identifier, accounts FROM users", {}, function(users)
---         for _, user in ipairs(users) do
---             local accounts = json.decode(user.accounts)
-
---             if accounts then
---                 accounts.money = 0
---                 accounts.black_money = 0
---                 accounts.bank = 50000
-
---                 local newAccounts = json.encode(accounts)
-
---                 MySQL.Async.execute("UPDATE users SET accounts = @accounts WHERE identifier = @identifier", {
---                     ['@accounts'] = newAccounts,
---                     ['@identifier'] = user.identifier
---                 }, function(rowsChanged)
---                     print(("Accounts zurückgesetzt für %s"):format(user.identifier))
---                 end)
---             end
---         end
---     end)
--- end)
